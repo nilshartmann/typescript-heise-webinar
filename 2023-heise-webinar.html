@@ -39,7 +39,7 @@
           </h2>
 
           <h2 class="title" style="font-size: 4rem">
-            <b>Fortgeschrittene Möglichkeiten und Konzepte des Typsystems</b>
+            <b>Dynamische Typen mit TypeScript entwickeln</b>
           </h2>
 
           <h4 style="margin-top: 4rem">
@@ -113,75 +113,21 @@
         <!-- ######################################################  -->
         <section data-markdown>
           <textarea data-template>
-## Agenda
+### In diesem Webinar...
 
-* [Grundlagen](#/t-intro)
-* [Generics](#/t-generics)
-* [Mapped Types](#/t-mapped-types)
-* [Conditional Types](#/t-conditional-types)
-  * [Type inference mit Conditional Types](#/t-conditional-types-inference)
-* [Template Literale](#/t-template-literale)
-  * [Remapping von Keys](#/t-template-literale-remapping)
-  * [Intersection und Union Types (Exkurs)](#/t-intersection-und-union-types)
-  * [Conditional Types mit Template Literalen](#/t-template-literale-conditional-types)
----
-### Unser Workshop heute...
+* jedeR hat einen anderen Begriff von "Fortgeschritten"
+  * Mein Ziel ist, dass ihr zumindest etwas Neues lernt (vielleicht nicht alles neu für jedeN)
+  * Und dass ihr vielleicht das, was ihr im täglichen Leben jetzt schon verwendet, besser versteht bzw. die Hintegründe kennt
+* Wir konzentrieren uns im Wesentlichen auf die Typ-Ebene
+* Die gezeigten Beispiele kommen daher meist ohne Implementierung aus
 
-* Wir konzentrieren uns heute nur auf die Typ-Ebene
-* Die gezeigten Beispiele kommen daher ohne Implementierung aus
-* Ich möchte Euch zeigen, wie ihr komplexe Typ-Definitionen schreiben könnt, von denen Verwender Eurer APIs dann profitieren
-  * Die APIs kann man nutzen, ohne viel TypeScript Typen schreiben zu müssen
-  * Verwendung der APIs ist aber trotzdem typsicher
-  
----
-## Grundlagen
-<!-- .slide: id="t-intro" -->
----
-### Zwei kleine Tipps
-* TypeScript online im Playground ausführen: https://www.typescriptlang.org/play
+</textarea
+          >
+        </section>
+        <section data-markdown="teil01.md"></section>
+        <section data-markdown>
+          <textarea data-template>
 
-* Typen in der IDE/Editor anzeigen:
-  * In der Regel könnt ihr Euch in Eurem Editor oder Eurer IDE den Typen einer Variable anzeigen lassen, in dem ihr mit der Maus darüber fahrt  
-  * Im [TypeScript Playground](https://www.typescriptlang.org/play) könnt ihr mit `// ?^` unter einer Variablen Euch deren Typen anzeigen lassen
-  * ![Tooltip](./slides/images/screenshot-type-tooltip.png)
-  * Für VS Code gibt es dazu eine [Extension](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-twoslash-queries)
-
----
-### Type Aliase
-* Mit dem Schlüsselwort [`type`](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases) wird ein __Type Alias__ erzeugt.
-* Ein Type Alias ist nur ein (anderer) Name für einen Typen
-* Man kann immer entweder einen Type Alias oder einen kompletten Typen hinschreiben
-* Beispiele:
-  * ```typescript
-    declare function createPerson(firstname: string, address: {city: string} ): 
-                                        { firstname: string, address: { city: string } };
-
-    ```
-  * ist identisch mit:  
-  * ```typescript
-    type Address = {
-      city: string;
-    }
-    type Person = {
-      firstname: string
-      address: { city: string }
-    }
-    declare function createPerson(firstname: string, address: Address ): Person;
-  ```
-
-  * ...und auch das ist identisch:
-  * ```typescript
-    type Address = {
-      city: string;
-    }
-    type Person = {
-      firstname: string
-      address: Address
-    }
-    declare function createPerson(firstname: string, address: Address ): Person;
-  ```
-* Man verwendet immer das, was am besten passt
----
 ### Index Access
 * Mit dem Index Operator kannst Du in JavaScript auf _Werte_ aus einem _Objekt_ zugreifen:
 * ```typescript
@@ -224,35 +170,7 @@
 
   addContact({email: "nils@nilshartmann.net", phone: "..."})
   ```
----
-### Union Types
-* Variablen, Parameter etc. können mehr als einen Typ annehmen:            
-* ```typescript
-    type Person = { name: string };
-    type Movie = { title: string };
 
-    type PersonOrMovie = Person | Movie;
-
-    function printNameOrTitle(obj: PersonOrMovie) { 
-
-      console.log(obj.title); // ERR: Property 'title' does not 
-                              // exist on type 'Person | Movie'
-    
-      if ("title" in obj) { // Abfrage ist ein "Type Guard"
-        // obj ist Movie hier, title ist definiert
-        console.log(obj.title);
-      } else {
-        // obj ist Person hier: name ist definiert
-        console.log(obj.name);
-      }
-    }
-
-    printNameOrTitle( { name: "Klaus" } ); // OK
-
-    printNameOrTitle( { title: "TypeScript Deep Dive" } ); // OK
-
-    printNameOrTitle( { label: "Save" } ); // ERR
-  ```
 ---
 ### Literal Types
 * Mit einem [Literal Type](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types) kannst Du einen Typen definieren, der einen konkreten String darstellt 
