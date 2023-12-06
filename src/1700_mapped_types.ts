@@ -3,6 +3,7 @@ export default undefined;
 
 // TODO - SCHRITTE:
 //   - ValidatePerson mit boolean
+//   - Validate Person mit optional Keys
 //   - ValidatePerson mit KEYS und boolean
 //   - Validate Generic mit boolean
 
