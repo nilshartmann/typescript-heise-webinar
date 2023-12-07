@@ -5,6 +5,8 @@ export default undefined;
 //      -> das brauchen wir ganz viel auch wenn wir
 //         später Typen "programmieren"
 
+//  Wie kann die Signatur dieser Funktion so geschrieben
+//  werden, dass sie nur "loading" oder "failed" entgegennimmt?
 declare function setRequestState(state: string): void;
 
 setRequestState("loading"); // OK

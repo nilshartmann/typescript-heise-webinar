@@ -4,4 +4,4 @@ export default undefined;
 // Austauschbarkeit
 // Unterschiede
 //  (decl. merging, aliase)
-// -> im Webinar werden wie type verwenden
+// -> im Webinar werden wir type verwenden

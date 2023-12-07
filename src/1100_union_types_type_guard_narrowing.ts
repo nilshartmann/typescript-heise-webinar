@@ -1,9 +1,8 @@
 export default undefined;
 
 // 1. string | null
-// 2. string | null | boolean
-// 3. string | null | boolean | object | objekt
-// 4. string | null | boolean | object | objekt (mit "in")
+// 3. string | null | object | objekt
+// 4. string | null | object | objekt (mit "in")
 //  Type Guards
 //  Type Narrowing
 //  typeof Problematik
@@ -11,12 +10,20 @@ export default undefined;
 //
 type Person = {
   firstName: string;
-  age: number;
+  lastName: string;
 };
 
-type Animal = {
+interface Animal {
   name: string;
   species: string;
-};
+}
+
+class Team {
+  constructor(public teamName: string) {}
+}
+
+// Diese Funktion soll ein Argument haben,
+//  das entweder ein string, null, oder Person oder Animal oder Team sein darf
+//  -> wie kann in der Funktion mit den Werten gearbeitet werden?
 
 function sayHello() {}

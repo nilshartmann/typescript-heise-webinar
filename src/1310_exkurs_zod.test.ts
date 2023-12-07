@@ -3,6 +3,7 @@ import { expect, test } from "vitest";
 
 declare function fetch(): unknown;
 
+// EVTL SPÄTER (BEISPIEL FÜR MAPPED TYPE)
 // Wir bekommen vom Server Daten
 //  wie können wir die Validieren?
 
