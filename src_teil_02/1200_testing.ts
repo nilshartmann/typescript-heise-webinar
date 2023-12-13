@@ -3,6 +3,11 @@ import { expectTypeOf } from "vitest";
 
 export default undefined;
 
+// In mühevoller Arbeit haben wir diesen Typen entwickelt.
+//
+//  - Wie können wir sicherstellen, dass der auch funktioniert?
+//  - Wie können wir ihn testen?
+
 type ValidationResult<O> = {
   [K in keyof O]: boolean;
 };
@@ -13,22 +18,3 @@ const person = {
   firstname: "Klaus",
   age: 32,
 };
-
-type Person = typeof person;
-
-type test_isString = Expect<Equal<string, string>>;
-
-type test_x = Expect<
-  Equal<
-    {
-      firstname: boolean;
-      age: boolean;
-    },
-    ValidationResult<Person>
-  >
->;
-
-expectTypeOf(validate(person)).toEqualTypeOf<{
-  firstname: boolean;
-  age: boolean;
-}>();

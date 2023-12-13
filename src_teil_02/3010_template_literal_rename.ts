@@ -14,7 +14,7 @@ export default undefined;
 //
 // - Die Funktion liefert fuer ein Property den Namen der getter-Funktion zurück
 //   - firstname -> getFirstname
-//   -> wenn das Ding bereits mit 'get'-anfängt soll der Name unverändert zurückkommen!
+//   -> wenn der Name bereits mit 'get'-anfängt soll der Name unverändert zurückkommen!
 
 declare function generateGetterName(name: string): unknown;
 

@@ -6,11 +6,17 @@ export default undefined;
 // TODO
 //   - InferUnit-Type
 //   - Recursive InferUnit-Type (${number}${infer U})
-
+//
+//
+//
+//
+//
+//
+//
 // Die folgende Funktion parst einen String mit einer Größen-Angabe
-//  im folgendne Format:
+//  im folgenden Format:
 //  "2 rem", oder "14 em"
-//  Bei anderen Angaben (z.B. "2 cm") soll never zurückgegeben werden
+//  Bei anderen Angaben (z.B. "2 cm") soll 'never' zurückgegeben werden
 //  - Zusatz:
 //     -> Exkurs: Können wir Capitalize selbst bauen?
 //     -> Die Funktion soll die Strings ohne Leerzeichen parsen
