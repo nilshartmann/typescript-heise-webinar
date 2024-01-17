@@ -7,6 +7,20 @@
   --r-code-font: "Courier New";
 }
 
+.reveal-viewport.title .reveal .controls {
+  bottom: 11em;
+  right: 9em;
+}
+
+.reveal-viewport.title .reveal .controls .navigate-right.highlight {
+  animation: bounce-right 1s 50 both ease-out;
+}
+
+.reveal-viewport.title .controls-arrow {
+  color: red;
+  font-size: 2rem;
+}
+
 .reveal .slides,
 .reveal .slides > section {
   padding-top: 0;
